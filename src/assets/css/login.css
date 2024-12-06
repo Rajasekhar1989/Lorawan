@@ -1,0 +1,125 @@
+
+.login-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	/* background: rgb(255,255,255);
+	background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 100%);	 */
+	background-image: url(../images/v996-009.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	position: relative;
+  }
+  .login-container:before{
+	content: "";
+	position: absolute;	
+	width: 100%;
+	height: 100%;
+	background-color: #ffffffc9;
+	top: 0;
+	left: 0;
+  }
+  .login-box {
+	background-color: #fbfafa;
+	padding: 20px;
+	border-radius: 8px;	
+	width: 100%;
+	max-width: 400px;
+	height: 280px; 
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	-webkit-box-shadow: 0px 4px 10px 0px rgba(138,142,148,0.5);
+	-moz-box-shadow: 0px 4px 10px 0px rgba(138,142,148,0.5);
+	box-shadow: 0px 4px 10px 0px rgba(138,142,148,0.5);
+	position: relative;
+  }
+  .login-box .logo{
+	text-align: center;
+  }
+  
+  .login-container.logo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 20px;
+	margin-bottom: 15px;	
+  }
+  
+  .logo img {
+	height: 40px;
+	margin-right: 10px;
+  }
+  
+  ion-item {
+	margin-bottom: 15px;
+	transition: all 0.3s ease; 
+	--border-color: var(--color1);
+	--background:transparent;
+  }
+  ion-item::part(native){
+	padding-left:0;
+  }
+  ion-item.has-error {
+	--highlight-color-focused: #ff4d4d;
+	border-color: #ff4d4d; 
+  }
+  .login-box form ion-input{
+	margin-left: 10px;
+	border: none !important;
+	--placeholder-color: var(--color1) !important;
+	
+  }
+  .login-box form ion-input input:focus{
+	caret-color: var(--caret-color) !important;
+  }
+  ion-input.has-focus input::placeholder{
+	color: transparent !important;
+  }
+  .login-box ion-button {
+	min-height: 33px;
+	font-size: 16px;
+	font-weight: 500;
+	margin-top: 30px;	
+	text-transform: capitalize;
+
+  }
+  .login-box ion-button::part(native){
+	background-color: #01ADEC;
+  }
+  
+  .error-message {
+	color: #ff4d4d;
+	font-size: 12px;
+	margin-top: -10px;
+	margin-bottom: 10px;
+	margin-left: 15px;
+  }
+  
+  .forgot-password {
+	display: block;
+	text-align: center;
+	margin-top: 10px;
+	color: #007aff;
+	text-decoration: none;
+  }
+.icon svg{
+	width: 22px; height: 22px;
+	fill: var(--color1)
+}
+
+  
+  @media (max-width: 768px) {
+	.login-box {
+	  padding: 15px;
+	  max-width: 90%;
+	}
+  }
+  
+  @media (max-width: 480px) {
+	.login-box {
+	  padding: 10px;
+	}
+  }

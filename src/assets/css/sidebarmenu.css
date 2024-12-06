@@ -1,0 +1,374 @@
+ion-menu::part(container) {
+	overflow-y: auto;
+	background-color: var(--color2);
+	--padding-bottom: 20px;
+	scrollbar-width: thin;
+	scrollbar-gutter: 5px;
+	border-right:1px solid #e6eff1;
+}
+
+ion-menu {
+	--padding-bottom: 20px;
+	border-inline-end:0px !important;
+}
+
+/* General Styles */
+.list {
+	width: 100%;
+	overflow-y: auto; 
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+	width: 5px;
+}
+
+::-webkit-scrollbar-track {
+	background: var(--color23);
+	border-radius: 10px;
+	width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--color24);
+	width: 4px;
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: var(--color25);
+}
+
+/* Scrollbar Hide */
+.ion-menu::part(container)::-webkit-scrollbar {
+	width: 5px;
+}
+
+.ion-menu::part(container)::-webkit-scrollbar-track {
+	background: var(--color23);
+	width: 5px;
+}
+
+.ion-menu::part(container)::-webkit-scrollbar-thumb {
+	background: var(--color24);
+	border-radius: 4px;
+	width: 5px;
+}
+
+.ion-menu::part(container)::-webkit-scrollbar-thumb:hover {
+	background: var(--color25);
+}
+
+.list .list-hidden {
+	display: none;
+	overflow: hidden;
+	padding: 0 0 0 1.1rem;
+	margin-top: 10px;
+	position: relative;
+}
+.list .list-hidden:before{
+	content: "";
+    position: absolute;
+    width: 2px;
+    height: calc(100% - 18px);
+    background-color: rgba(0, 0, 0, 0.09);    
+	left: 19px;
+	top: 5px;
+}
+
+.list-hidden .list-link {
+	line-height: 1.875rem;
+	padding: 1px 0.7rem 1px 1rem;	
+	margin-bottom: 10px;
+	font-weight: normal;
+	border-left: 4px solid transparent;
+}
+.list-hidden .list-link .list-icon svg{
+	fill: var(--color7);
+}
+.list-item {
+	padding: 0;
+	margin-top: 0.625rem;
+	line-height: 2.25rem;
+}
+.list-item ul li.parent{
+	display: inline-block;
+	min-width: 220px;
+}
+.list-item ul li.parent > a{
+	margin-bottom: 0;
+	background: rgb(49,161,249);
+	background: linear-gradient(90deg, rgba(49,161,249,1) 0%, rgba(39,85,205,1) 100%);
+	padding-left: 10px;	
+	border-top-right-radius: 50px;
+	border-bottom-right-radius: 50px;
+	color: #fff;
+	border-left: 0;
+	font-weight: normal;
+}
+
+.list-title {
+	margin-bottom: 0;
+	margin-left: 1.0625rem;
+	letter-spacing: 0.0625rem;
+	font-size: 0.75rem;
+}
+
+.list-link {
+	display: block;
+	padding: 1px 0.9rem 1px 0.3rem;
+	margin: 0;
+	color: var(--color27);
+	text-decoration: none;
+	font-weight: 100;	
+	/* letter-spacing: 0.5px; */
+}
+
+.list-link:hover .bell {
+	animation: bellshake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+	backface-visibility: hidden;
+	transform-origin: top right;
+}
+
+@keyframes bellshake {
+	0% { transform: rotate(0); }
+	15% { transform: rotate(5deg); }
+	30% { transform: rotate(-5deg); }
+    45% { transform: rotate(4deg); }
+	60% { transform: rotate(-4deg); }
+    75% { transform: rotate(2deg); }
+	85% { transform: rotate(-2deg); }
+	92% { transform: rotate(1deg); }
+	100% { transform: rotate(0); }
+}
+
+.list-icon {
+	width: 23px;
+	display: inline-block;
+}
+
+.list .link-current {
+	background-color: transparent;	
+	border-radius: 2px;
+}
+
+.link-arrow {
+	position: relative;
+}
+
+.link-arrow:before {
+	content: "";
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	position: absolute;
+	right: 8px;
+	top: 50%;
+	margin-top: -6px;
+}
+
+.list-link.selected {
+	border-left-color: var(--color28);	
+	border-left: 4px solid #31a1f9;
+	border-top-right-radius: 8px;    
+	border-bottom-right-radius: 8px;  
+	color: #31a1f9;  
+	transition: all ease .3s;
+}
+
+.list-link .list-icon {	
+	position: relative;
+    top: -3px;
+}
+
+.list-link .list-icon svg {
+	fill: var(--color2);
+	width: 17px;
+	height: 17px;
+}
+.list-link.selected .list-icon svg {
+	fill: #31a1f9;  
+}
+
+.link-arrow.down:before {
+	background-image: url('/src/assets/icons/angle-down.svg');
+}
+
+.link-arrow.transition:before {
+	transition: 0.2s all;
+}
+
+.link-arrow.rotate:before {
+	transform: rotate(180deg);
+}
+
+.link-arrow.rotate-revert:before {
+	transform: rotate(-90deg);
+}
+
+.list-bg-light .link-arrow:before {
+	opacity: 0.3;
+}
+
+.list-bg-light .link-arrow.active:before {
+	opacity: 1;
+}
+
+.list-bg-light .list-link .list-icon {
+	color: var(--color2);
+}
+
+.list-bg-light .list-link.link-current .list-icon,
+.list-bg-light .list-link:hover .list-icon {
+	color: var(--color2);
+}
+
+ion-split-pane {
+	--side-max-width: 25%;
+	--side-width: 300px;
+}
+
+.sidebar-user-bg-light {
+	background-color: var(--color29);
+}
+
+.sidebar-user-bg-light .sidebar-user-link {
+	color: var(--color2);
+}
+
+.sidebar-user-bg-light .sidebar-user-link:hover {
+	color: var(--color2);
+}
+
+.list-bg-blue {
+	color: var(--color2);
+}
+
+.list-bg-blue .list-hidden {
+	background-color: var(--color30);
+}
+
+.list-bg-blue .list-hidden .list-link {
+	color: var(--color1);
+	opacity: 0.6;
+}
+
+.list-bg-blue .list-hidden .link-current,
+.list-bg-blue .list-hidden .link-current:hover,
+.list-bg-blue .list-hidden .list-link:hover {
+	color: var(--color1);
+	opacity: 1;
+}
+
+.list-bg-blue .list-link .list-icon {
+	color: var(--color31);
+}
+
+.list-bg-blue .list-link.link-current .list-icon,
+.list-bg-blue .list-link:hover .list-icon {
+	color: var(--color1);
+}
+
+.sidebar-user-bg-blue {
+	background-color: var(--color30);
+}
+
+.sidebar-user-bg-blue .sidebar-user-link {
+	color: var(--color33);
+}
+
+.sidebar-user-bg-blue .sidebar-user-link:hover {
+	color: var(--color1);
+}
+
+.list-bg-purple {
+	color: var(--color2);
+}
+
+.list-bg-purple .list-hidden {
+	background-color: var(--color32);
+}
+
+.list-bg-purple .list-hidden .list-link {
+	color: var(--color1);
+	opacity: 0.6;
+}
+
+.list-bg-purple .list-hidden .link-current,
+.list-bg-purple .list-hidden .link-current:hover,
+.list-bg-purple .list-hidden .list-link:hover {
+	color: var(--color1);
+	opacity: 1;
+}
+
+.list-bg-purple .list-link .list-icon {
+	color: var(--color34);
+}
+
+.list-bg-purple .list-link.link-current .list-icon,
+.list-bg-purple .list-link:hover .list-icon {
+	color: var(--color1);
+}
+
+.sidebar-user-bg-purple {
+	background-color: var(--color32);
+}
+
+.sidebar-user-bg-purple .sidebar-user-link {
+	color: var(--color2);
+}
+
+.sidebar-user-bg-purple .sidebar-user-link:hover {
+	color: var(--color1);
+}
+
+.angle {
+	float: right;
+	position: relative;
+	top: -2px;
+}
+
+.angle svg {
+	width: 13px;
+	transition: all ease .3s;
+	fill: var(--color2);
+}
+
+.list-link.link-current .angle svg {
+	transform: rotate(180deg);
+	transition: all ease .3s;
+}
+
+.resize-handle {
+	width:6px;
+	cursor: ew-resize;
+	z-index: 1000; 
+	position: relative;
+	background-color: var(--color35);
+	display: none;
+}
+
+.resize-handle:before, .resize-handle:after {
+  position: absolute;
+  width: 1px;
+  height: 25px;
+  content: "";
+  background-color: var(--color36);
+  top: 50%;
+  left: 1px;
+}
+
+.resize-handle:after{
+  left: 4px;
+}
+
+.togglemenubutton {
+	font-size: 30px;  
+	color: var(--color46);
+}
+
+.lightmode, .darkmode, .list-icon { 
+	fill: var(--color7); 
+}

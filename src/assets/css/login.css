@@ -70,8 +70,11 @@
 	margin-left: 10px;
 	border: none !important;
 	--placeholder-color: var(--color1) !important;
+	min-height: 40px !important;
+  	height: 40px !important;
 	
   }
+  .login-box form ion-input input{ font-size: 16px !important;}
   .login-box form ion-input input:focus{
 	caret-color: var(--caret-color) !important;
   }

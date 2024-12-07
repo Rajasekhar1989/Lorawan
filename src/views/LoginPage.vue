@@ -5,17 +5,25 @@
         <img src="../assets/images/LoRaWAN_Logo_black.png" alt="" />
       </div>
       <form @submit.prevent="handleLogin">
-        <ion-item :class="{'has-error': errors.username}">
-          <span class="icon" v-html="$store.state.user"></span> 
-          <ion-input type="text" v-model="username" @focus="clearText('username')" @input="validateUsername" placeholder="Username"></ion-input>
-        </ion-item>
-        <p v-if="errors.username" class="error-message">{{ errors.username }}</p>
-        <ion-item :class="{'has-error': errors.password}">
-          <span class="icon" v-html="$store.state.userpassword"></span> 
-          <ion-input type="password" v-model="password" @focus="clearText('password')" @input="validatePassword" placeholder="Password"></ion-input>
-        </ion-item>
-        <p v-if="errors.password" class="error-message">{{ errors.password }}</p>        
-        <ion-button expand="block" type="submit">Login</ion-button>
+          <div class="custominput">            
+              <ion-item :class="{'has-error': errors.username}">
+                <span class="icon" v-html="$store.state.user"></span>
+                <ion-input label-placement="stacked" v-model="username" placeholder="Enter Text" @focus="clearText('username')" @input="validateUsername">                    
+                  <div slot="label">Username</div>
+                </ion-input>                 
+              </ion-item>            
+              <p v-if="errors.username" class="error-message">{{ errors.username }}</p>
+          </div>
+          <div class="custominput">            
+              <ion-item :class="{'has-error': errors.password}">
+                <span class="icon" v-html="$store.state.userpassword"></span>
+                <ion-input type="password" label-placement="stacked" v-model="password" @focus="clearText('password')" @input="validatePassword" placeholder="Enter Password">
+                  <div slot="label">Password</div>
+                </ion-input>                 
+              </ion-item>            
+              <p v-if="errors.password" class="error-message">{{ errors.password }}</p>        
+          </div>       
+          <ion-button expand="block" type="submit">Login</ion-button>
       </form>      
     </div>
   </div>

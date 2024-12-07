@@ -1,45 +1,73 @@
 <template>
 	<ion-page>
-    <div class="cardwrap">
+    <div class="cardwrap">      
+        
+
+      <table class="nodetable" id="myTable" v-if="false">
+        <tr>
+          <td>
+            <div class="panel" @click="navmbdevice">
+              <h6 class="pan-title"><span class="pan-icon" v-html="$store.state.wifi"></span> MB180.25356</h6>
+              <p>Version 24.08.02</p>
+            </div>
+          </td>          
+        </tr>
+        <tr>
+          <td>
+            <div class="panel">
+              <h6 class="pan-title"><span class="pan-icon" v-html="$store.state.bluetooth"></span> BL180.25356</h6>
+              <p>Version 23.08.02</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="panel">
+              <h6 class="pan-title"><span class="pan-icon" v-html="$store.state.microchip"></span> CADA Management</h6>
+              <p>Version 1.08.02</p>
+            </div>
+          </td>
+        </tr>
+      </table>
       <ion-breadcrumbs>
-        <ion-breadcrumb href="#home">Applications</ion-breadcrumb>
-        <ion-breadcrumb href="#electronics">MB180.25356</ion-breadcrumb>        
-      </ion-breadcrumbs>      
-      <ion-row>
-        <ion-col size-sm="6" size-md="4" size-lg="3" size="12">
-          <div class="panel" @click="navmbdevice">
-            <h6 class="pan-title"><span class="pan-icon" v-html="$store.state.wifi"></span> MB180.25356</h6>
-            <p>Version 24.08.02</p>
-          </div>
-        </ion-col>
-        <ion-col size-sm="6" size-md="4" size-lg="3" size="12">
-          <div class="panel">
-            <h6 class="pan-title"><span class="pan-icon" v-html="$store.state.bluetooth"></span> BL180.25356</h6>
-            <p>Version 23.08.02</p>
-          </div>
-        </ion-col>
-        <ion-col size-sm="6" size-md="4" size-lg="3" size="12">
-          <div class="panel">
-            <h6 class="pan-title"><span class="pan-icon" v-html="$store.state.microchip"></span> CADA Management</h6>
-            <p>Version 1.08.02</p>
-          </div>
-        </ion-col>
-      </ion-row>
-
-      <div class="mainsegment">
-        <ion-segment class="mb-3" color="primary" value="mainmenu" mode="ios" v-model="segmentValue" @ionChange="handleSegmentChange">
-          <ion-segment-button value="mainmenu" content-id="mainmenu">
-            <ion-label>Main Menu</ion-label>
-          </ion-segment-button>
-          <ion-segment-button value="guidedsetup" content-id="guidedsetup">
-            <ion-label>Guided Setup</ion-label>
-          </ion-segment-button>
-        </ion-segment>
-
-        <ion-row v-show="segmentValue === 'mainmenu'" content-id="mainmenu">
-              <ion-col size-sm="4">
+        <ion-breadcrumb href="javascript:void(0)">Applications</ion-breadcrumb>
+        <ion-breadcrumb href="javascript:void(0)">Menu</ion-breadcrumb>        
+      </ion-breadcrumbs> 
+      
+        <div class="contentwrap">
+          <aside class="subtree">              
+            <ul class="list sub list-unstyled list-bg-dark list-icon-red mb-0">              
+              <li class="list-item">
+                <ul class="list-unstyled">
+                  <li class="parent">
+                    <a href="#" class="list-link link-arrow">
+                      <span class="list-icon" v-html="$store.state.home"></span>Main Menu
+                      <span v-html="$store.state.svgarrow" class="angle"></span>
+                    </a>
+                    <ul class="list-unstyled hidden">
+                      <li v-for="item in items" :key="item.key" @click="btnsubnav(item.key)">
+                        <a class="list-link link-arrow" :class="{ selected: selectedItem === item.key }">
+                          <span class="list-icon" v-html="item.icon"></span>
+                          {{ item.name }}
+                        </a>
+                      </li>										
+                    </ul>
+                  </li>                  	
+                </ul>
+                <ul>
+                  <li class="parent">
+                    <a class="list-link">Guied Setup</a>
+                  </li>	
+                </ul>
+              </li>
+            </ul>	
+          </aside>
+          
+          <aside class="menubody">
+            <div class="routinfo">
+                <!-- Health Status -->
                 <div class="panel clear" @click="showhealthstatus">
-                  <!-- Health Status -->
+                  
                   <div v-if="true">
                     <h6 class="pan-title mb-3"><span class="pan-icon" v-html="$store.state.healthstatus"></span> Health Status </h6>
                     <div class="alarmstatus">
@@ -219,22 +247,19 @@
                         </ion-button>
                       </div>
                   </div>
-                </div>                
-              </ion-col>
+                </div>
 
-
-              <ion-col size-sm="4">
                 <!-- Device Configuration -->
-                <div class="panel clear">
+                <div class="panel clear" v-if="false">
                   <h6 class="pan-title"><span class="pan-icon" v-html="$store.state.deviceconfig"></span> Device Configuration</h6>
                   
 
                   <div class="customselect">
-                      <ion-select label="Universal Plugin" label-placement="stacked" interface="popover" placeholder="1.2GHz Enhancer" mode="md">
-                          <ion-select-option value="0">1.2GHz Enhancer</ion-select-option>
-                          <ion-select-option value="1">1.5GHz Enhancer</ion-select-option>
-                          <ion-select-option value="2">1.4GHz Enhancer</ion-select-option>
-                      </ion-select> 
+                    <ion-select label="Universal Plugin" label-placement="stacked" interface="popover" placeholder="1.2GHz Enhancer" mode="md">
+                        <ion-select-option value="0">1.2GHz Enhancer</ion-select-option>
+                        <ion-select-option value="1">1.5GHz Enhancer</ion-select-option>
+                        <ion-select-option value="2">1.4GHz Enhancer</ion-select-option>
+                    </ion-select> 
                   </div>            
                   <div class="setBtn center">
                       <ion-button class="btnprimary" mode="ios"><span> Set</span></ion-button>
@@ -285,25 +310,17 @@
                       <ion-button class="btnprimary" mode="ios"><span> Set</span></ion-button>
                   </div>                   
                 </div>
-              </ion-col>
+              
 
 
-              <ion-col size-sm="4">
-                <!-- Downstream Configuration -->
-                <div class="panel clear">
+              
+                <!-- Downstream Configuration -->                
+                <div class="panel clear" v-if="false">
                   <h6 class="pan-title mb-3"><span class="pan-icon" v-html="$store.state.downstream"></span> Downstream Configuration</h6>
-                  <div class="notes">
+                  <div class="notes center">
                     <p>Manual Mode Active <span class="svgicon" v-html="$store.state.notepin"></span></p>
                   </div>
-                  <div class="checkboxgroup">
-                      <!-- <ion-item>
-                          <ion-label>Manual</ion-label>
-                          <ion-checkbox @click="btnChkbox('manual',$event)"  v-model="isManualChecked" mode="md"></ion-checkbox>                
-                      </ion-item>
-                      <ion-item>
-                          <ion-label>AGC</ion-label>
-                          <ion-checkbox @click="btnChkbox('manual',$event)"  v-model="isManualChecked" mode="md"></ion-checkbox>                
-                      </ion-item> -->
+                  <div class="checkboxgroup">                     
                       <!-- v-model="isManualChecked" -->
                       <!-- @click="btnChkbox('manual',$event)" -->
                       <ion-checkbox  mode="md"><span>Manual</span></ion-checkbox> 
@@ -341,82 +358,211 @@
                         <ion-button mode="ios"><img :src="$store.state.configbtn5" alt="" /> </ion-button>
                         <ion-button mode="ios"><img :src="$store.state.configbtn6" alt="" /> </ion-button>
                     </div>
+
+                    <ion-row class="align-items-center">
+                      <ion-col size="12" size-sm="6" class="center">                    
+                          <ion-button class="btnprimary md" mode="ios" @click="navconfigsettings"> <span class="svglabel">Configure Settings</span></ion-button>                
+                      </ion-col>
+                      <ion-col size="12" size-sm="6" class="center">
+                          <ion-button class="btnprimary md" mode="ios"> <span class="svglabel">Run Auto-Setup</span></ion-button>                
+                      </ion-col>
+                      <ion-col size="12" size-sm="6" class="center">
+                          <ion-button class="btnprimary md" mode="ios" @click="navspectrumdisplay"> <span class="svglabel">Spectrum Display</span></ion-button>
+                      </ion-col>
+                    </ion-row>
+
+                    <div>
+                      <table class="table">
+                          <thead>
+                              <tr>
+                                  <th>Pilot Frequencies</th>
+                                  <th>Value/Units</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td>Pilot 1</td>
+                                  <td>400 MHz, 0.0 dBmV/6MHz</td>
+                              </tr>
+                              <tr>
+                                  <td>Pilot 2</td>
+                                  <td>1600 MHz, 0.0 dBmV/6MHz</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+
+                  <div>
+                      <table class="table">
+                          <thead>
+                              <tr>
+                                  <th>Power Levels</th>
+                                  <th>Value/Units</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td>DS Input TCP</td>
+                                  <td>0.0 dB</td>
+                              </tr>
+                              <tr>
+                                  <td>DS Output Port 2 TCP</td>
+                                  <td>0.0 dB</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
                 </div>
 
 
 
                 </div>                
-              </ion-col>
-              <ion-col size-sm="4">
-                <div class="panel clear">
-                  <h6 class="pan-title"><span class="pan-icon" v-html="$store.state.upstream"></span> Upstream Configuration</h6>
+
+                <!-- Upstream Configuration -->
+                <div class="panel clear" v-if="false">
+                  <h6 class="pan-title mb-3"><span class="pan-icon" v-html="$store.state.upstream"></span> Upstream Configuration</h6>
+                  <h5 class="cardtitle">Input Attenuation</h5>
+                  <SpinControl :label="'Port 2'" />  
+
+                  <div class="configbtns">
+                      <ion-button mode="ios"><img :src="$store.state.configbtn1" alt="" /> </ion-button>
+                      <ion-button mode="ios"><img :src="$store.state.configbtn2" alt="" /> </ion-button>
+                      <ion-button mode="ios"><img :src="$store.state.configbtn3" alt="" /> </ion-button>
+                  </div>
+                  <div>
+                      <table class="table">
+                          <thead>
+                              <tr>
+                                  <th>Gain/Tilt Port 2</th>
+                                  <th>Value/Units</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td>Gain @ 1749 MHz</td>
+                                  <td>0.0 dB</td>
+                              </tr>
+                              <tr>
+                                  <td>Tilt @ 303 ~ 1749 MHz</td>
+                                  <td>0.0 dB</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="configbtns mb-3">
+                      <ion-button mode="ios"><img :src="$store.state.configbtn4" alt="" /> </ion-button>
+                      <ion-button mode="ios"><img :src="$store.state.configbtn5" alt="" /> </ion-button>
+                      <ion-button mode="ios"><img :src="$store.state.configbtn6" alt="" /> </ion-button>
+                  </div>
+
+                  <h5 class="cardtitle center">Step Size</h5>
+
+                  <div class="mainsegment sm" style="margin: 15px 0;">
+                      <ion-segment value="default" mode="ios" class="three">
+                          <ion-segment-button value="default" mode="ios">
+                              <ion-label class="icon-label"><span class="svglabel">Fine</span> </ion-label>
+                          </ion-segment-button>
+                          <ion-segment-button value="medium">
+                              <ion-label><span class="svglabel"> Medium</span></ion-label>
+                          </ion-segment-button>                    
+                          <ion-segment-button value="coarse">
+                              <ion-label><span class="svglabel"> Coarse</span></ion-label>
+                          </ion-segment-button>                    
+                      </ion-segment>
+                  </div>                  
+                </div>
+              
+                <!-- Ingress -->
+                <div class="panel clear" v-if="false">
+                  <h6 class="pan-title mb-3"><span class="pan-icon" v-html="$store.state.diagnostics"></span>Ingress Control Switch</h6>
                   
-                  <p>Info</p>
-                </div>
-              </ion-col>
-              <ion-col size-sm="4">
-                <div class="panel clear">
-                  <h6 class="pan-title"><span class="pan-icon" v-html="$store.state.diagnostics"></span> Advanced Diagnostics</h6>
-                  <p>Info</p>
-                </div>                
-              </ion-col>
-              <ion-col size-sm="4">
-                <div class="panel clear">
-                  <h6 class="pan-title"><span class="pan-icon" v-html="$store.state.utilities"></span> Utilities</h6>
-                  <p>Info</p>
-                </div>                
-              </ion-col>
-              <ion-col size-sm="4">
-                <div class="panel clear">
-                  <h6 class="pan-title"><span class="pan-icon" v-html="$store.state.profiles"></span> Profiles</h6>
-                  <p>Info</p>
-                </div>                
-              </ion-col>
-              <ion-col size-sm="4">
-                <div class="panel clear">
-                  <h6 class="pan-title"><span class="pan-icon" v-html="$store.state.spectrum"></span> Spectrum Display</h6>
-                  <p>Info</p>
-                </div>
-              </ion-col>
-            
-              
-            
-            
-              
-            
-            
-             
-            
-            
-              
-            
-            
-              
-            
-            
-              
-            
-            
-              
-            
-            
-              
-          
-          <ion-col size-sm="6">
+                  <h6 class="cardtitle mb-1">Port 2</h6>
+                    <div class="customradio">
+                        <ion-radio-group value="6db" mode="ios">                
+                            <ion-row>
+                                <ion-col size="6">
+                                    <ion-radio value="6db">6 dB</ion-radio><br />
+                                </ion-col>
+                                <ion-col size="6">
+                                    <ion-radio value="0db">0 dB</ion-radio><br />
+                                </ion-col>
+                                <ion-col size="6">
+                                    <ion-radio value="max">MAX</ion-radio>
+                                </ion-col>
+                            </ion-row>
+                        </ion-radio-group>
+                    </div>      
+                    
+                    <h6 class="cardtitle mb-1">Select Port 3 / 4</h6>
 
-          </ion-col>
-          
-            
-          
-        </ion-row>
-
-        <ion-row v-show="segmentValue === 'guidedsetup'" content-id="guidedsetup">
-          
-        </ion-row>
-        
+                    <div class="customradio">
+                        <ion-radio-group value="6db" mode="ios">                
+                            <ion-row>
+                                <ion-col size="6">
+                                    <ion-radio value="0db">0 dB</ion-radio><br />
+                                </ion-col>
+                                <ion-col size="6">
+                                    <ion-radio value="6db">6 dB</ion-radio><br />
+                                </ion-col>                        
+                                <ion-col size="6">
+                                    <ion-radio value="max">MAX</ion-radio>
+                                </ion-col>
+                            </ion-row>
+                        </ion-radio-group>
+                    </div>                  
+                </div>           
 
 
-      </div>      
+
+
+
+
+
+
+
+            </div>
+                           
+          
+                 
+          
+          
+    
+              <!-- Select Auxilary Plug-in -->
+              <div class="panel clear" v-if="false">
+                <h6 class="pan-title mb-3"><span class="pan-icon" v-html="$store.state.upstream"></span> Guided Setup</h6>
+                <h5 class="cardtitle mb-1">Select Auxilary Plug-in</h5>
+
+                <div class="customradio full">
+                    <ion-radio-group value="jmp" mode="ios">  
+                      <ion-row>
+                        <ion-col size="6">
+                          <ion-radio value="jmp">JMP</ion-radio>            
+                        </ion-col>
+                        <ion-col size="6">
+                          <ion-radio value="2way">2-Way</ion-radio>            
+                        </ion-col>
+                        <ion-col size="6">
+                          <ion-radio value="dc08">DC-08</ion-radio>
+                        </ion-col>
+                        <ion-col size="6">
+                          <ion-radio value="dc10">DC-10</ion-radio>
+                        </ion-col>
+                        <ion-col size="6">
+                          <ion-radio value="dc12">DC-12</ion-radio>
+                        </ion-col>
+                      </ion-row> 
+                    </ion-radio-group>
+                </div> 
+              </div>        
+    
+          </aside>
+        </div>          
+       
+       
+      
+      
+
+         
       
     </div>      
 	</ion-page>
@@ -429,7 +575,50 @@ export default defineComponent({
   name: 'TenantApplications',
   data() {
     return {
-      segmentValue: 'mainmenu',
+      selectedItem: null,      
+      items: [
+        {
+          key: 'healthstatus',
+          name: 'Health Status',
+          icon: this.$store.state.healthstatus,
+        },
+        {
+          key: 'deviceconfig',
+          name: 'Device Configuration',
+          icon: this.$store.state.deviceconfig,
+        },
+        {
+          key: 'downstreamconfig',
+          name: 'Downstream Configuration',
+          icon: this.$store.state.downstream,
+        },
+        {
+          key: 'upstreamconfig',
+          name: 'Upstream Configuration',
+          icon: this.$store.state.upstream,
+        },
+        {
+          key: 'advanceddiagnostics',
+          name: 'Advanced Diagnostics',
+          icon: this.$store.state.diagnostics,
+        },
+        {
+          key: 'utilities',
+          name: 'Utilities',
+          icon: this.$store.state.utilities,
+        },
+        {
+          key: 'profiles',
+          name: 'Profiles',
+          icon: this.$store.state.profiles,
+        },
+        {
+          key: 'spectrum',
+          name: 'Spectrum Display',
+          icon: this.$store.state.spectrum,
+        },
+        // Add more items here if needed
+      ],
     }
   },
   setup() {
@@ -441,13 +630,24 @@ export default defineComponent({
   components:{
     SpinControl
   },
+  
+  mounted(){
+    window.addEventListener('resize', this.submenuactive);
+  },
+  unmounted(){
+    window.removeEventListener('resize', this.submenuactive);
+  },
   methods: {
     handleSegmentChange(event) {
       console.log('Segment changed to:', event.detail.value);
     },
     showhealthstatus: function(){
       console.log("Health status")
-    }
+    },  
+    btnsubnav(itemKey) {
+      this.selectedItem = itemKey; // Set the selected item key
+      console.log('Selected item:', itemKey); // Log for debugging
+    },
 
   }
 });

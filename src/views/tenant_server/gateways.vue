@@ -9,9 +9,9 @@
 </template>
 <script>
 import TableComponent from '../../components/TableComponent.vue';
-import eventBus from '../../assets/scripts/eventbusnav.js';
-import store from '../../store';
-import { useRouter } from "vue-router";
+// import eventBus from '../../assets/scripts/eventbusnav.js';
+// import store from '../../store';
+// import { useRouter } from "vue-router";
 
 export default {
   name: 'CompanyInformation',

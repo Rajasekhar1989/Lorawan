@@ -134,9 +134,9 @@ body.light {
     --color13: #fff;
     --color14: #fff;
     --color15: #f1f0f3;
-    --color16: #dad6d6;
+    --color16: #dbf3ff;
     --color17: #2f95f2;
-    --color18: #2961d4;
+    --color18: #2859D0;
     --color19: #000;
     --color20: #dacece;
     --color21: #736c80;
@@ -191,7 +191,8 @@ body.light {
     --primarybg: #0E62AB;
     --successbg: #67A308;
     --errorbg: #F84343;
-    --setbtnbg: #2757ce
+    --btnbg: #2859D0;
+    --gradient: linear-gradient(90deg, rgba(49, 161, 249, 1) 0%, rgba(39, 85, 205, 1) 100%);
 }
 
 body.blue {

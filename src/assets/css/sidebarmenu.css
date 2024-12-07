@@ -59,14 +59,14 @@ ion-menu {
 	background: var(--color25);
 }
 
-.list .list-hidden {
-	display: none;
+.list .list-hidden, .list.sub .hidden {
+	/* display: none; */
 	overflow: hidden;
 	padding: 0 0 0 1.1rem;
 	margin-top: 10px;
 	position: relative;
 }
-.list .list-hidden:before{
+.list .list-hidden:before, .list.sub .hidden:before {
 	content: "";
     position: absolute;
     width: 2px;
@@ -76,14 +76,14 @@ ion-menu {
 	top: 5px;
 }
 
-.list-hidden .list-link {
+.list-hidden .list-link, .list.sub .hidden .list-link {
 	line-height: 1.875rem;
 	padding: 1px 0.7rem 1px 1rem;	
 	margin-bottom: 10px;
 	font-weight: normal;
 	border-left: 4px solid transparent;
 }
-.list-hidden .list-link .list-icon svg{
+.list-hidden .list-link .list-icon svg, .list.sub .hidden .list-link .list-icon svg{
 	fill: var(--color7);
 }
 .list-item {
@@ -95,10 +95,13 @@ ion-menu {
 	display: inline-block;
 	min-width: 220px;
 }
-.list-item ul li.parent > a{
+.list.sub .list-item ul li.parent{
+	min-width: 270px;
+}
+.list-item ul li.parent > a, .list.sub .hidden .list-item ul li.parent > a{
 	margin-bottom: 0;
 	background: rgb(49,161,249);
-	background: linear-gradient(90deg, rgba(49,161,249,1) 0%, rgba(39,85,205,1) 100%);
+	background: var(--gradient);
 	padding-left: 10px;	
 	border-top-right-radius: 50px;
 	border-bottom-right-radius: 50px;
@@ -169,7 +172,7 @@ ion-menu {
 	margin-top: -6px;
 }
 
-.list-link.selected {
+.list-link.selected, .list.sub .list-item .list-link.selected {
 	border-left-color: var(--color28);	
 	border-left: 4px solid #31a1f9;
 	border-top-right-radius: 8px;    

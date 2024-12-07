@@ -3,42 +3,47 @@
     <div class="cardwrap">      
         
 
-      <table class="nodetable" id="myTable" v-if="false">
-        <tr>
-          <td>
-            <div class="panel" @click="navmbdevice">
-              <h6 class="pan-title"><span class="pan-icon" v-html="$store.state.wifi"></span> MB180.25356</h6>
-              <p>Version 24.08.02</p>
-            </div>
-          </td>          
-        </tr>
-        <tr>
-          <td>
-            <div class="panel">
-              <h6 class="pan-title"><span class="pan-icon" v-html="$store.state.bluetooth"></span> BL180.25356</h6>
-              <p>Version 23.08.02</p>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div class="panel">
-              <h6 class="pan-title"><span class="pan-icon" v-html="$store.state.microchip"></span> CADA Management</h6>
-              <p>Version 1.08.02</p>
-            </div>
-          </td>
-        </tr>
-      </table>
+      
       <ion-breadcrumbs>
         <ion-breadcrumb href="javascript:void(0)">Applications</ion-breadcrumb>
         <ion-breadcrumb href="javascript:void(0)">Menu</ion-breadcrumb>        
       </ion-breadcrumbs> 
-      
+
         <div class="contentwrap">
+          <aside class="devices">
+            
+            <ion-searchbar  show-clear-button="never" mode="ios"></ion-searchbar>
+            <table class="nodetable" id="myTable">
+              <tr>
+                <td>
+                  <div class="panel" @click="navmbdevice">
+                    <h6 class="pan-title"><span class="pan-icon" v-html="$store.state.wifi"></span> MB180.25356</h6>
+                    <p>Version 24.08.02</p>
+                  </div>
+                </td>          
+              </tr>
+              <tr>
+                <td>
+                  <div class="panel">
+                    <h6 class="pan-title"><span class="pan-icon" v-html="$store.state.bluetooth"></span> BL180.25356</h6>
+                    <p>Version 23.08.02</p>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="panel">
+                    <h6 class="pan-title"><span class="pan-icon" v-html="$store.state.microchip"></span> CADA Management</h6>
+                    <p>Version 1.08.02</p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </aside>
           <aside class="subtree">              
             <ul class="list sub list-unstyled list-bg-dark list-icon-red mb-0">              
               <li class="list-item">
-                <ul class="list-unstyled">
+                <ul class="list-unstyled mb-2">
                   <li class="parent">
                     <a href="#" class="list-link link-arrow">
                       <span class="list-icon" v-html="$store.state.home"></span>Main Menu

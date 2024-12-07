@@ -1199,8 +1199,8 @@ ion-input.sc-ion-input-md-h.ion-invalid{--highlight-color: #c5000f !important;}
 
 ion-checkbox{--checkbox-background-checked:var(--color17) !important;--border-color-checked:var(--color17) !important}
 
-.nodetable{	display: flex;gap: 5px;}
-.nodetable tr{flex-grow: 0;flex-basis: 0;min-width: 250px;}
+.nodetable{	display: block;}
+.nodetable tr{display: block;}
 .nodetable tr td{ width: 100%; display: block;}
 
 .note { font-weight: 600;color:red;}
@@ -1413,10 +1413,12 @@ ion-label .device-icon.lg{left: 6px;top: 11px;}
 }
 
 .contentwrap{ display: flex; gap:25px;}
-.contentwrap aside.subtree{flex: 0 26%;}
+.contentwrap aside.deices{flex: 0 20%;}
+.contentwrap aside.subtree{flex: 0 20%;}
 .contentwrap aside.menubody{ flex: 1; }
 .contentwrap .subtree ul{position: sticky;top: 0px;}
 .routinfo{max-width: 500px;margin: 0 auto;}
+.contentwrap .devices ion-searchbar{ padding: 0;}
 
 
 

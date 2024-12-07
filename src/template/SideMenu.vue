@@ -18,33 +18,6 @@
 										<li><a href="#" class="list-link" :class="getMenuClass('ten_applications')" @click.prevent="selectMenu('ten_applications')"><span class="list-icon" v-html="$store.state.applications"></span>Applications</a></li>
 									</ul>
 								</li>		
-								<!-- <li>
-									<a href="#" class="list-link link-arrow" :class="getMenuClass('networkserverconfig')">
-										<span class="list-icon" v-html="$store.state.mastersconfiguration"></span>Network Server<span v-html="$store.state.svgarrow" class="angle"></span>
-									</a>
-									<ul class="list-unstyled list-hidden">
-										<li><a href="#" class="list-link" :class="getMenuClass('net_dashboard')" @click.prevent="selectMenu('net_dashboard')"><span class="list-icon" v-html="$store.state.companyinformation"></span>Dashboard</a></li>
-										<li><a href="#" class="list-link" :class="getMenuClass('net_tenants')" @click.prevent="selectMenu('net_tenants')"><span class="list-icon" v-html="$store.state.worklocations"></span>Tenants</a></li>
-										<li><a href="#" class="list-link" :class="getMenuClass('net_users')" @click.prevent="selectMenu('net_users')"><span class="list-icon" v-html="$store.state.departments"></span>Users</a></li>										
-										<li><a href="#" class="list-link" :class="getMenuClass('net_device_profile_templates')" @click.prevent="selectMenu('net_device_profile_templates')"><span class="list-icon" v-html="$store.state.shifts"></span>Device Profile Templates</a></li>
-										<li><a href="#" class="list-link" :class="getMenuClass('net_regions')" @click.prevent="selectMenu('net_regions')"><span class="list-icon" v-html="$store.state.holidays"></span>Regions</a></li>
-									</ul>
-								</li> -->
-								<!-- <li>
-									<a href="#" class="list-link link-arrow" :class="getMenuClass('tenetconfig')">
-										<span class="list-icon" v-html="$store.state.employeeinformation"></span>Tenant
-										<span v-html="$store.state.svgarrow" class="angle"></span>
-									</a>
-									<ul class="list-unstyled list-hidden">
-										<li><a href="#" class="list-link" :class="getMenuClass('ten_dashboard')" @click.prevent="selectMenu('ten_dashboard')"><span class="list-icon" v-html="$store.state.profiles"></span>Dashboard</a></li>
-										<li><a href="#" class="list-link" :class="getMenuClass('ten_users')" @click.prevent="selectMenu('ten_users')"><span class="list-icon" v-html="$store.state.shiftswoffs"></span>Users</a></li>
-										<li><a href="#" class="list-link" :class="getMenuClass('ten_device_profiles')" @click.prevent="selectMenu('ten_device_profiles')"><span class="list-icon" v-html="$store.state.profiles"></span>Device Profiles</a></li>
-										<li><a href="#" class="list-link" :class="getMenuClass('ten_gateways')" @click.prevent="selectMenu('ten_gateways')"><span class="list-icon" v-html="$store.state.profiles"></span>Gateways</a></li>
-										<li><a href="#" class="list-link" :class="getMenuClass('ten_gateway_mesh')" @click.prevent="selectMenu('ten_gateway_mesh')"><span class="list-icon" v-html="$store.state.shiftswoffs"></span>Gateway Mesh</a></li>
-										<li><a href="#" class="list-link" :class="getMenuClass('ten_applications')" @click.prevent="selectMenu('ten_applications')"><span class="list-icon" v-html="$store.state.profiles"></span>Applications</a></li>
-
-									</ul>
-								</li>									 -->
 							</ul>
 						</li>
 					</ul>					

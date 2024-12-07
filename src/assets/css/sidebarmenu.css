@@ -82,10 +82,12 @@ ion-menu {
 	margin-bottom: 10px;
 	font-weight: normal;
 	border-left: 4px solid transparent;
+	font-size: 18px;
 }
 .list-hidden .list-link .list-icon svg, .list.sub .hidden .list-link .list-icon svg{
 	fill: var(--color7);
 }
+.list.sub .list-item{ margin-top: 0;}
 .list-item {
 	padding: 0;
 	margin-top: 0.625rem;
@@ -96,7 +98,7 @@ ion-menu {
 	min-width: 220px;
 }
 .list.sub .list-item ul li.parent{
-	min-width: 270px;
+	min-width: 305px;
 }
 .list-item ul li.parent > a, .list.sub .hidden .list-item ul li.parent > a{
 	margin-bottom: 0;
@@ -191,7 +193,7 @@ ion-menu {
 	width: 17px;
 	height: 17px;
 }
-.list-link.selected .list-icon svg {
+.list-link.selected .list-icon svg, .list.sub .list-link.selected .list-icon svg {
 	fill: #31a1f9;  
 }
 
@@ -229,8 +231,8 @@ ion-menu {
 }
 
 ion-split-pane {
-	--side-max-width: 25%;
-	--side-width: 300px;
+	--side-max-width: 15%;
+	--side-width: 200px;
 }
 
 .sidebar-user-bg-light {

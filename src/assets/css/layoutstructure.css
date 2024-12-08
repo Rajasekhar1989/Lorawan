@@ -1392,8 +1392,8 @@ ion-checkbox::part(label){margin-inline-end: 10px;}
 .devicelist ion-item:last-child{ margin-bottom: 0;}
 .devicelist ion-item ion-label{padding:10px;font-size: 16px !important;margin-right: 0; position: relative; margin: 0; background-color: var(--color16); border-radius: 10px; cursor: pointer;}
 .device-name{padding-left: 30px;}
-.devicelist ion-item.selected ion-label{background-color: var(--color17); color: var(--color2);}
-.devicelist ion-item.selected ion-label svg{fill: var(--color2);}
+.devicelist ion-item.selected ion-label{background-color: var(--color17); color: var(--color18);}
+.devicelist ion-item.selected ion-label svg{fill: var(--color18);}
 
 /* .devicelist ion-label .angle-icon{padding-top: 3px;} */
 .devicelist ion-label .angle-icon{float: right;padding-top: 20px;}
@@ -1409,7 +1409,8 @@ ion-label .device-icon{position: absolute; left: 11px;top: 7px;height: 30px;}
 .device-icon.lg svg{width: 30px;  height: 30px;}
 ion-label .device-icon.lg{left: 6px;top: 11px;}
 .devicelist ion-item .smallicon span:first-child svg{ width: 24px;height:28px;}
-.devicelist.menu .angle-icon {margin-top: 5px;height: 24px;padding-top: 0;}
+.device
+menu .angle-icon {margin-top: 5px;height: 24px;padding-top: 0;}
 .devicelist.menu .angle-icon svg{height: 17px;width: 17px;}
 .devicelist{
 	white-space: nowrap;

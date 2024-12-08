@@ -14,30 +14,16 @@
             
             <ion-searchbar  show-clear-button="never" mode="ios" @ionBlur="showDefaultBar()"></ion-searchbar>
             <table class="nodetable" id="myTable">
-              <tr>
-                <td>
-                  <div class="panel selected" @click="navmbdevice">
-                    <h6 class="pan-title"><span class="pan-icon" v-html="$store.state.wifi"></span> MB180.25356</h6>
-                    <p>Version 24.08.02</p>
-                  </div>
-                </td>          
-              </tr>
-              <tr>
-                <td>
-                  <div class="panel ble">
-                    <h6 class="pan-title"><span class="pan-icon" v-html="$store.state.bluetooth"></span> BLE180.25356</h6>
-                    <p>Version 23.08.02</p>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="panel">
-                    <h6 class="pan-title"><span class="pan-icon" v-html="$store.state.microchip"></span> CADA Management</h6>
-                    <p>Version 1.08.02</p>
-                  </div>
-                </td>
-              </tr>
+              <tbody>
+                <tr v-for="device in devices" :key="device.key" @click="btndevice(device.key)">
+                  <td>
+                    <div class="panel" :class="{ selected: selectedDevice === device.key }">
+                      <h6 class="pan-title"><span class="pan-icon" v-html="device.icon"></span> {{device.name}}</h6>
+                      <p>{{device.version}}</p>
+                    </div>
+                  </td>          
+                </tr>                
+              </tbody>
             </table>
           </aside>
           <aside class="subtree">              
@@ -51,7 +37,7 @@
                     </a>
                     <ul class="list-unstyled hidden">
                       <li v-for="item in items" :key="item.key" @click="btnsubnav(item.key)">
-                        <a href="javascript:void(0)" class="list-link link-arrow" :class="{ selected: selectedItem === item.key }">
+                        <a href="javascript:void(0)" class="list-link link-arrow" :class="{ selected: selectedItem === item.key }" @click="btnmenuclick(item.key)">
                           <span class="list-icon" v-html="item.icon"></span>
                           {{ item.name }}
                         </a>
@@ -68,8 +54,16 @@
             </ul>	
             <div class="menubody">
               <div class="routinfo">
+                <ion-segment value="deviceinfo" mode="ios">
+                  <ion-segment-button value="deviceinfo" >
+                    <ion-label>Device Information</ion-label>
+                  </ion-segment-button>
+                  <ion-segment-button value="firmware">
+                    <ion-label>Firmware Upgrade</ion-label>
+                  </ion-segment-button>                  
+                </ion-segment>
                   <!-- Health Status -->
-                  <div class="panel clear" @click="showhealthstatus">
+                  <div class="panel clear" @click="showhealthstatus" v-if="false">
                     
                     <div v-if="true">
                       <h6 class="pan-title mb-3"><span class="pan-icon" v-html="$store.state.healthstatus"></span> Health Status </h6>
@@ -575,6 +569,28 @@ export default defineComponent({
   data() {
     return {
       selectedItem: null,      
+      selectedDevice:null,
+      togglechk:false,
+      devices:[
+        {
+          key:'mb180.2536',
+          name:'MB180.2536',    
+          icon: this.$store.state.wifi,
+          version:'23.08.02'
+        },
+        {
+          key:'ble180.2536',
+          name:'BLE180.2536',    
+          icon: this.$store.state.bluetooth,
+          version:'23.08.02'
+        },
+        {
+          key:'cada',
+          name:'CADA Management',    
+          icon: this.$store.state.microchip,
+          version:'1.08.02'
+        }
+      ],
       items: [
         {
           key: 'healthstatus',
@@ -647,6 +663,23 @@ export default defineComponent({
       this.selectedItem = itemKey; // Set the selected item key
       console.log('Selected item:', itemKey); // Log for debugging
     },
+    btndevice(deviceKey){
+      this.selectedDevice = deviceKey; // Set the selected item key
+      console.log('Selected item:', deviceKey); // Log for debugging
+    },
+    btnmenuclick: function(key){
+      console.log("Menu name", key);
+      // switch(key) {
+      //   case 'healthstatus':
+          
+      //     break;
+      //   case utilities:
+          
+      //     break;
+      //   default:
+      //     // code block
+      // }
+    }
 
   }
 });
